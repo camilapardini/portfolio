@@ -1,0 +1,511 @@
+@font-face {
+	font-family: "Graphyne";
+	src: url("./fonts/Graphyne-Regular.woff2") format("woff2"),
+	  url("./fonts/Graphyne-Regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+  }
+
+  @font-face {
+  font-family: 'Tan Nimbus'; /* Nombre que usarás en CSS */
+  src: url('./fonts/TAN-NIMBUS.ttf') format('truetype'); /* Ruta a tu archivo .ttf */
+  font-weight: normal;  /* Opcional: puedes definir un peso específico si lo deseas */
+  font-style: normal;   /* Opcional: puedes definir un estilo, como 'italic' */
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+:root {
+	font-size: 16px;
+	--color-text: rgb(26, 24, 24);
+	--color-bg: rgb(239, 227, 236);
+	--color-link: rgba(210, 88, 196, 0.86);
+	--color-link-hover: rgb(227 226 220 / 100%);
+	--color-lines: rgba(120, 118, 119, 0.86);
+	--page-padding: 1.5rem;
+	overflow-x: hidden;
+}
+
+body {
+	margin: 0;
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	font-family: "scale-variable", -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
+	font-variation-settings: "wght" 400, "wdth" 100;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-image: url(../img/noise.png);
+  	background-size: 200px;
+}
+
+/* Page Loader */
+.js .loading::before,
+.js .loading::after {
+	content: '';
+	position: fixed;
+	z-index: 1000;
+}
+
+.js .loading::before {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--color-bg);
+}
+
+.js .loading::after {
+	top: 50%;
+	left: 50%;
+	width: 60px;
+	height: 60px;
+	margin: -30px 0 0 -30px;
+	border-radius: 50%;
+	opacity: 0.4;
+	background: var(--color-link);
+	animation: loaderAnim 0.7s linear infinite alternate forwards;
+
+}
+
+@keyframes loaderAnim {
+	to {
+		opacity: 1;
+		transform: scale3d(0.5,0.5,1);
+	}
+}
+
+a {
+	text-decoration: none;
+	color: var(--color-link);
+	outline: none;
+	cursor: pointer;
+	opacity: 0.7;
+}
+
+a:hover {
+	text-decoration: none;
+	color: var(--color-link-hover);
+	outline: none;
+	opacity: 1;
+}
+
+/* Better focus styles from https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
+a:focus {
+	/* Provide a fallback style for browsers
+	 that don't support :focus-visible */
+	outline: none;
+}
+
+a:focus-visible {
+	/* Draw a very noticeable focus style for
+	 keyboard-focus on browsers that do support
+	 :focus-visible */
+	outline: 2px solid red;
+}
+
+.unbutton {
+	background: none;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	font: inherit;
+	cursor: pointer;
+}
+
+.unbutton:focus {
+	outline: none;
+}
+
+.type-small {
+	font-size: 13px;
+	font-family: "iki-mono-variable", sans-serif;
+	font-variation-settings: "wdth" 100, "wght" 300;
+	text-transform: uppercase;
+}
+
+.frame {
+	padding: var(--page-padding);
+	position: relative;
+	display: grid;
+	z-index: 800;
+	width: 100%;
+	height: 100%;
+	grid-row-gap: 1rem;
+	grid-column-gap: 2rem;
+	pointer-events: none;
+	justify-items: start;
+}
+
+.frame--header {
+	margin: 50px 0px auto;
+	padding-inline: 5px;
+  	grid-template-columns: 100%;
+  	grid-template-areas: 'name' 'about' 'projects';
+}
+
+.frame--footer {
+  margin-top: 40vh;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+}
+
+.frame #cdawrap {
+  justify-self: start;
+}
+
+.frame a {
+  pointer-events: auto;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.frame__name {
+  grid-area: name;
+  font-weight: inherit;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.frame__about {
+  grid-area: about;
+  justify-self: start;
+}
+
+.frame__projects {
+  grid-area: projects;
+  justify-self: start;
+}
+
+.intro {
+	padding: 0;
+	line-height: 1;
+	min-height: 100vh;
+	margin-top:10vh;
+	
+}
+
+.intro__heading {
+	display: grid;
+	gap: 1rem;
+}
+
+.intro__heading h2 {
+	font-size: clamp(2rem, 7vw, 4rem);
+	font-family: "Playfair Display", sans-serif;
+	font-style: italic;
+	margin: 0 auto;
+}
+
+.intro__heading p {
+	font-size: 33vw;
+	font-family: "Tan Nimbus";
+	margin: 0;
+	text-align: justify;
+	letter-spacing: 0px;
+}
+
+.divider {
+	border-top: 2px solid var(--color-lines);
+	max-width: 95%;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+.content {
+	padding: var(--page-padding);
+	display: flex;
+	flex-direction: column;
+	gap: 20vh;
+	width: 100vw;
+	position: relative;
+	place-items: center;
+	margin-bottom: 30vh;
+}
+
+.blur-text {
+	width: 95vw;
+	max-width: 1200px;
+	min-width: 300px;
+	display: flex;
+	flex-direction: column;
+	margin-top: 50px;
+}
+
+.blur--title {
+	font-family: "Bebas Neue", sans-serif;
+	text-transform: uppercase;
+	font-size: 8vh;
+	margin: 0;
+	text-align: right;
+}
+
+.blur--description {
+	margin: 0;
+	width: 80%;
+	margin-top: 10px;
+}
+
+.blur--description p {
+	font-size: 4vh;
+	margin: 0 0 20px 0;
+	font-family: "instrument-sans-variable", sans-serif;
+	line-height: 1.2;
+}
+
+.blur--description span {
+	color: var(--color-link)
+}
+
+.cards--content {
+	padding: var(--page-padding);
+	display: flex;
+	flex-direction: column;
+	gap: 2vh;
+	width: 100vw;
+	position: relative;
+	place-items: center;
+	margin-bottom: 30vh;
+}
+
+.card-wrap {
+	margin-top: 5vh;
+	display: grid;
+	grid-gap: 2rem;
+	grid-auto-flow: row;
+	grid-template-columns: 250px;
+}
+
+.card__image {
+	display: block;
+	border-radius: 7px;
+	background-size: cover;
+	background-position: 50% 50%;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 4 / 3;
+	filter: brightness(0.8);
+}
+
+.card__title {
+	font-size: 2.3vh;
+	font-family: "iki-mono-variable", sans-serif;
+	font-variation-settings: "wdth" 100, "wght" 300;
+	text-transform: uppercase;
+	letter-spacing: -0.1em;
+}
+
+.card__subtitle {
+	font-size: 2vh;
+	font-family: "instrument-sans-variable", sans-serif;
+	font-variation-settings: "wdth" 100, "wght" 200;
+	margin:0;
+}
+
+@media (min-width: 848px) and (max-width: 1699px) {
+	
+	.frame--header {
+		margin: 20px auto;
+		padding-inline: 5px;
+		display: flex;
+		max-width: 95%;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 auto;
+		}
+	.frame a {
+		font-size: 18px;
+	}
+	.intro {
+	padding: var(--page-padding);
+	margin-top: 20vh;
+	min-height: 80vh;
+	}
+	.intro__heading p {
+	letter-spacing: -18px;
+	}
+	.frame--footer {
+		grid-template-columns: auto auto auto;
+	}
+	.frame #cdawrap, 
+	.frame__sub {
+		justify-self: end;
+	}
+	.card-wrap {
+		grid-template-columns: repeat(3,450px);
+	}
+	.blur-text {
+	width: 95vw;
+	max-width: 1200px;
+	min-width: 300px;
+	display: flex;
+	flex-direction: row;
+	gap: 30px;
+	margin-top: 50px;
+}
+
+.blur--title {
+	font-family: "Bebas Neue", sans-serif;
+	text-transform: uppercase;
+	font-size: 8vh;
+	margin: 0;
+	text-align: right;
+}
+
+.blur--description {
+	margin: 0;
+	width: 80%;
+	margin-top: 10px;
+}
+
+.blur--description p {
+	font-size: 4vh;
+	margin: 0 0 20px 0;
+	font-family: "instrument-sans-variable", sans-serif;
+}
+.content {
+	margin-bottom: 20vh;
+}
+}
+
+@media screen and (min-width: 1700px) {
+  .frame--header {
+		margin: 20px auto;
+		padding-inline: 5px;
+		max-width: 95%;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		align-items: start;
+		}
+	.frame a {
+		font-size: 18px;
+	}
+	.frame__name img {
+		width: 80px;
+	}
+	.intro {
+	padding: var(--page-padding);
+	margin-top: 15vh;
+	min-height: 0;
+	margin-bottom: 15vh;
+	}
+	.intro__heading p {
+	letter-spacing: -18px;
+	font-size: 25vw;
+	}
+	.frame--footer {
+		grid-template-columns: auto auto auto;
+	}
+	.frame #cdawrap, 
+	.frame__sub {
+		justify-self: end;
+	}
+	.card-wrap {
+		grid-template-columns: repeat(2,600px);
+		grid-gap: 4rem 2rem;
+	}
+
+.card__image {
+	display: block;
+	border-radius: 7px;
+	aspect-ratio: 16 / 9;
+}
+	.blur-text {
+	width: 95vw;
+	max-width: 1200px;
+	min-width: 300px;
+	display: flex;
+	flex-direction: row;
+	gap: 30px;
+	margin-top: 50px;
+}
+
+.blur--title {
+	font-family: "Bebas Neue", sans-serif;
+	text-transform: uppercase;
+	font-size: 8vh;
+	margin: 0;
+	text-align: right;
+}
+
+.blur--description {
+	margin: 0;
+	width: 80%;
+	margin-top: 10px;
+}
+
+.blur--description p {
+	font-size: 4vh;
+	margin: 0 0 20px 0;
+	font-family: "instrument-sans-variable", sans-serif;
+}
+}
+
+@media screen and (max-width: 767px) {
+  .frame {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.frame--header {
+	margin: 0 auto;
+	max-width: 95%;
+}
+
+  .intro {
+    margin-top: 10vh;
+	margin-bottom: 10vh;
+    min-height: auto;
+  }
+
+  .intro__heading  {
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: baseline;
+  }
+
+  .intro__heading h2 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    text-align: center;
+  }
+
+  .intro__heading p {
+    font-size: 32vw;
+    text-align: center;
+    letter-spacing: -1px;
+  }
+
+  .blur-text {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .blur--title {
+    font-size: 6vh;
+    text-align: left;
+  }
+
+  .blur--description {
+    width: 100%;
+  }
+
+  .blur--description p {
+    font-size: 3vh;
+  }
+
+  .card-wrap {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  .frame--footer {
+    flex-direction: column;
+    margin-top: 10vh;
+    gap: 1rem;
+  }
+}
