@@ -140,8 +140,8 @@ a:hover {
 .intro {
   padding: 0;
   line-height: 1;
-  min-height: 100vh;
   margin-top: 10vh;
+  margin-bottom: 10vh;
 }
 .intro__heading {
   display: flex;
@@ -152,7 +152,7 @@ a:hover {
   gap: 1rem;
 }
 .intro__heading h2 {
-  font-size: 14vw;
+  font-size: 10vw;
   font-family: "Playfair Display", sans-serif;
   font-style: italic;
   text-align: left;
@@ -172,23 +172,23 @@ a:hover {
   margin: 40px auto 0;
 }
 
+.hide {
+  display: none;
+}
+
 /* Content */
 .content {
-  padding: var(--page-padding);
   display: flex;
   flex-direction: column;
   gap: 20vh;
   width: 100vw;
   position: relative;
-  place-items: center;
-  margin-bottom: 30vh;
+  margin-bottom: 10vh;
 }
 
 /* Blur Text */
 .blur-text {
-  width: 95vw;
-  max-width: 1200px;
-  min-width: 300px;
+  padding: 0px 10px;
   display: flex;
   flex-direction: column;
   margin-top: 50px;
@@ -196,17 +196,17 @@ a:hover {
 .blur-text .blur--title {
   font-family: "Bebas Neue", sans-serif;
   text-transform: uppercase;
-  font-size: 8vh;
+  font-size: 6vh;
   margin: 0;
-  text-align: right;
+  text-align: left;
 }
 .blur-text .blur--description {
-  width: 80%;
+  width: 95%;
   margin-top: 10px;
   font-family: "instrument-sans-variable", sans-serif;
 }
 .blur-text .blur--description p {
-  font-size: 4vh;
+  font-size: 3vh;
   margin: 0 0 20px 0;
   line-height: 1.2;
 }
