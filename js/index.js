@@ -53,11 +53,11 @@ gsap.from(".divider-animation", {
 
 gsap.from(".cards-animation", {
   opacity: 0,
-  duration: 4, // Duración más larga para un efecto más suave
+  duration: 3, // Duración más larga para un efecto más suave
   ease: "power2.out", // Easing para suavizar la animación
   scrollTrigger: {
     trigger: ".cards-animation",  // El trigger es el elemento que activa la animación
-    start: "top 40%",      // El punto de inicio para activar la animación
+    start: "top 70%",      // El punto de inicio para activar la animación
     end: "top 30%",        // El punto donde termina la animación
     scrub: true,           // Hace que la animación esté sincronizada con el desplazamiento
   }
