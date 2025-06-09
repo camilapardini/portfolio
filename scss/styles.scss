@@ -129,12 +129,6 @@ a {
       "works";
   }
 
-  &--footer {
-    margin-top: 40vh;
-    grid-template-columns: auto auto;
-    justify-content: space-between;
-  }
-
   a {
     pointer-events: auto;
     font-size: 22px;
@@ -145,7 +139,7 @@ a {
     grid-area: name;
     opacity: 1;
     img {
-      width: 100px;
+      width: 65px;
     }
   }
 
@@ -165,7 +159,7 @@ a {
 .intro {
   padding: 0;
   line-height: 1;
-  margin-top: 10vh;
+  margin-top: 7vh;
   margin-bottom: 10vh;
 
   &__heading {
@@ -255,19 +249,26 @@ a {
   padding: var(--page-padding);
   display: flex;
   flex-direction: column;
-  gap: 2vh;
-  width: 100vw;
-  position: relative;
+  // gap: 2vh;
+  // width: 100vw;
+  // position: relative;
   place-items: center;
-  margin-bottom: 30vh;
+  margin-bottom: 5vh;
 }
 
+.cards--title {
+  font-family: "Bebas Neue", sans-serif;
+  text-transform: uppercase;
+  font-size: 6vh;
+  margin: 0;
+  text-align: left;
+}
 .card-wrap {
   margin-top: 5vh;
   display: grid;
-  grid-gap: 2rem;
+  grid-gap: 3rem;
   grid-auto-flow: row;
-  grid-template-columns: 250px;
+  grid-template-columns: 100%;
 }
 
 .card__image {
@@ -277,8 +278,7 @@ a {
   background-position: 50% 50%;
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3;
-  filter: brightness(0.8);
+  aspect-ratio: 16 / 9;
 }
 
 .card__title {
@@ -294,6 +294,13 @@ a {
   font-family: "instrument-sans-variable", sans-serif;
   font-variation-settings: "wdth" 100, "wght" 200;
   margin: 0;
+}
+
+/* Footer */
+
+.frame--footer {
+  flex-direction: column;
+  padding: var(--page-padding);
 }
 
 @media screen and (min-width: 768px) {
@@ -358,6 +365,14 @@ a {
       padding: 0 1rem;
     }
 
+    .card__image {
+      filter: brightness(0.7);
+
+      &:hover {
+        filter: brightness(1);
+      }
+    }
+
     .frame--footer {
       flex-direction: column;
       margin-top: 10vh;
@@ -418,6 +433,14 @@ a {
 
   .card-wrap {
     grid-template-columns: repeat(3, 450px);
+  }
+
+  .card__image {
+    filter: brightness(0.7);
+
+    &:hover {
+      filter: brightness(1);
+    }
   }
 
   .blur-text {
@@ -516,7 +539,10 @@ a {
   }
 
   .card__image {
-    display: block;
-    aspect-ratio: 16 / 9;
+    filter: brightness(0.7);
+
+    &:hover {
+      filter: brightness(1);
+    }
   }
 }
