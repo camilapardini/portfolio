@@ -160,7 +160,7 @@ a {
   padding: 0;
   line-height: 1;
   margin-top: 7vh;
-  margin-bottom: 10vh;
+  margin-bottom: 20vh;
 
   &__heading {
     display: flex;
@@ -308,16 +308,16 @@ a {
     overflow-x: hidden;
   }
 
-  .frame {
-    position: relative;
+  .frame--header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    max-width: 95%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+  }
 
-    .frame--header {
-      margin: 0 auto;
-      max-width: 95%;
-    }
-
+  .frame {
     .intro {
       margin-top: 10vh;
       margin-bottom: 10vh;
@@ -360,23 +360,26 @@ a {
       }
     }
 
-    .card-wrap {
-      grid-template-columns: 1fr;
-      padding: 0 1rem;
-    }
-
-    .card__image {
-      filter: brightness(0.7);
-
-      &:hover {
-        filter: brightness(1);
-      }
-    }
-
-    .frame--footer {
-      flex-direction: column;
+    &--footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
       margin-top: 10vh;
-      gap: 1rem;
+    }
+  }
+
+  .card-wrap {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+    grid-template-columns: 70%;
+    justify-content: center;
+  }
+
+  .card__image {
+    filter: brightness(0.7);
+
+    &:hover {
+      filter: brightness(1);
     }
   }
 }
@@ -384,19 +387,6 @@ a {
 @media (min-width: 1024px) {
   body {
     overflow-x: hidden;
-  }
-
-  .frame--header {
-    display: flex;
-    flex-direction: row;
-    max-width: 95%;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-
-    .frame a {
-      font-size: 18px;
-    }
   }
 
   .frame__name {
@@ -407,32 +397,21 @@ a {
 
   .intro {
     padding: var(--page-padding);
-    margin-top: 20vh;
+    margin-top: 18vh;
     margin-bottom: 20vh;
 
     &__heading {
-      h2  {
-        font-size: 4vh;
+      h2 {
+        font-size: 8vh;
       }
       p {
-        letter-spacing: -18px;
+        letter-spacing: -10px;
       }
-    }
-  }
-
-  .frame--footer {
-    grid-template-columns: auto auto auto;
-  }
-
-  .frame {
-    #cdawrap,
-    .frame__sub {
-      justify-self: end;
     }
   }
 
   .card-wrap {
-    grid-template-columns: repeat(3, 450px);
+    grid-template-columns: repeat(2, 450px);
   }
 
   .card__image {
@@ -455,7 +434,7 @@ a {
     .blur--title {
       font-family: "Bebas Neue", sans-serif;
       text-transform: uppercase;
-      font-size: 8vh;
+      font-size: 6vh;
       margin: 0;
       text-align: right;
     }
@@ -473,69 +452,73 @@ a {
   }
 
   .content {
-    margin-bottom: 20vh;
+    margin-bottom: 15vh;
   }
 }
 
-@media screen and (min-width: 1700px) {
+@media screen and (min-width: 1440px) {
   body {
     overflow-x: hidden;
   }
 
   .frame--header {
     margin: 20px auto;
-    padding-inline: 5px;
-    max-width: 95%;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: start;
-
-    .frame a {
-      font-size: 18px;
-    }
-
-    .frame__name {
-      img {
-        width: 80px;
-      }
-    }
   }
 
   .intro {
     padding: var(--page-padding);
-    margin-top: 15vh;
+    margin-top: 16vh;
     min-height: 0;
     margin-bottom: 15vh;
 
     &__heading {
-      gap: 6vh;
+      gap: 12vh;
       h2 {
         font-size: 3vw;
         margin: 0 auto;
       }
       p {
-        letter-spacing: -18px;
         font-size: 25vw;
+        letter-spacing: -18px;
       }
     }
   }
 
-  .frame--footer {
-    grid-template-columns: auto auto auto;
-  }
+  .blur-text {
+    width: 100vw;
+    max-width: 1200px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 30px;
+    margin-top: 50px;
 
-  .frame {
-    #cdawrap,
-    .frame__sub {
-      justify-self: end;
+    .blur--title {
+      font-size: 6.5vh;
+    }
+
+    .blur--description {
+      margin: 0;
+      width: 90%;
+      margin-top: 10px;
+
+      p {
+        font-size: 4vh;
+        margin: 0 0 20px 0;
+      }
     }
   }
 
   .card-wrap {
     grid-template-columns: repeat(2, 600px);
-    grid-gap: 4rem 2rem;
+    grid-gap: 4rem 4rem;
   }
 
   .card__image {
@@ -543,6 +526,31 @@ a {
 
     &:hover {
       filter: brightness(1);
+    }
+  }
+}
+
+@media screen and (min-width: 1670px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .intro {
+    padding: var(--page-padding);
+    margin-top: 10vh;
+    min-height: 0;
+    margin-bottom: 15vh;
+
+    &__heading {
+      gap: 10vh;
+      h2 {
+        font-size: 3vw;
+        margin: 0 auto;
+      }
+      p {
+        font-size: 24vw;
+        letter-spacing: -9px;
+      }
     }
   }
 }

@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* Variables */
 :root {
   font-size: 16px;
@@ -136,7 +135,7 @@ a:hover {
   padding: 0;
   line-height: 1;
   margin-top: 7vh;
-  margin-bottom: 10vh;
+  margin-bottom: 20vh;
 }
 .intro__heading {
   display: flex;
@@ -269,14 +268,13 @@ a:hover {
   body {
     overflow-x: hidden;
   }
-  .frame {
-    position: relative;
+  .frame--header {
     display: flex;
-    flex-direction: column;
-  }
-  .frame .frame--header {
-    margin: 0 auto;
+    flex-direction: row;
     max-width: 95%;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
   }
   .frame .intro {
     margin-top: 10vh;
@@ -312,60 +310,45 @@ a:hover {
   .frame .blur-text .blur--description p {
     font-size: 3vh;
   }
-  .frame .card-wrap {
+  .frame--footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10vh;
+  }
+  .card-wrap {
     grid-template-columns: 1fr;
     padding: 0 1rem;
+    grid-template-columns: 70%;
+    justify-content: center;
   }
-  .frame .card__image {
+  .card__image {
     filter: brightness(0.7);
   }
-  .frame .card__image:hover {
+  .card__image:hover {
     filter: brightness(1);
-  }
-  .frame .frame--footer {
-    flex-direction: column;
-    margin-top: 10vh;
-    gap: 1rem;
   }
 }
 @media (min-width: 1024px) {
   body {
     overflow-x: hidden;
   }
-  .frame--header {
-    display: flex;
-    flex-direction: row;
-    max-width: 95%;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 auto;
-  }
-  .frame--header .frame a {
-    font-size: 18px;
-  }
   .frame__name img {
     width: 80px;
   }
   .intro {
     padding: var(--page-padding);
-    margin-top: 20vh;
+    margin-top: 18vh;
     margin-bottom: 20vh;
   }
-  .intro__heading h2  {
-    font-size: 4vh;
+  .intro__heading h2 {
+    font-size: 8vh;
   }
   .intro__heading p {
-    letter-spacing: -18px;
-  }
-  .frame--footer {
-    grid-template-columns: auto auto auto;
-  }
-  .frame #cdawrap,
-  .frame .frame__sub {
-    justify-self: end;
+    letter-spacing: -10px;
   }
   .card-wrap {
-    grid-template-columns: repeat(3, 450px);
+    grid-template-columns: repeat(2, 450px);
   }
   .card__image {
     filter: brightness(0.7);
@@ -385,7 +368,7 @@ a:hover {
   .blur-text .blur--title {
     font-family: "Bebas Neue", sans-serif;
     text-transform: uppercase;
-    font-size: 8vh;
+    font-size: 6vh;
     margin: 0;
     text-align: right;
   }
@@ -399,62 +382,92 @@ a:hover {
     margin: 0 0 20px 0;
   }
   .content {
-    margin-bottom: 20vh;
+    margin-bottom: 15vh;
   }
 }
-@media screen and (min-width: 1700px) {
+@media screen and (min-width: 1440px) {
   body {
     overflow-x: hidden;
   }
   .frame--header {
     margin: 20px auto;
-    padding-inline: 5px;
-    max-width: 95%;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: start;
   }
-  .frame--header .frame a {
-    font-size: 18px;
-  }
-  .frame--header .frame__name img {
-    width: 80px;
-  }
   .intro {
     padding: var(--page-padding);
-    margin-top: 15vh;
+    margin-top: 16vh;
     min-height: 0;
     margin-bottom: 15vh;
   }
   .intro__heading {
-    gap: 6vh;
+    gap: 12vh;
   }
   .intro__heading h2 {
     font-size: 3vw;
     margin: 0 auto;
   }
   .intro__heading p {
-    letter-spacing: -18px;
     font-size: 25vw;
+    letter-spacing: -18px;
   }
-  .frame--footer {
-    grid-template-columns: auto auto auto;
+  .blur-text {
+    width: 100vw;
+    max-width: 1200px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 30px;
+    margin-top: 50px;
   }
-  .frame #cdawrap,
-  .frame .frame__sub {
-    justify-self: end;
+  .blur-text .blur--title {
+    font-size: 6.5vh;
+  }
+  .blur-text .blur--description {
+    margin: 0;
+    width: 90%;
+    margin-top: 10px;
+  }
+  .blur-text .blur--description p {
+    font-size: 4vh;
+    margin: 0 0 20px 0;
   }
   .card-wrap {
     grid-template-columns: repeat(2, 600px);
-    grid-gap: 4rem 2rem;
+    grid-gap: 4rem 4rem;
   }
   .card__image {
     filter: brightness(0.7);
   }
   .card__image:hover {
     filter: brightness(1);
+  }
+}
+@media screen and (min-width: 1670px) {
+  body {
+    overflow-x: hidden;
+  }
+  .intro {
+    padding: var(--page-padding);
+    margin-top: 10vh;
+    min-height: 0;
+    margin-bottom: 15vh;
+  }
+  .intro__heading {
+    gap: 10vh;
+  }
+  .intro__heading h2 {
+    font-size: 3vw;
+    margin: 0 auto;
+  }
+  .intro__heading p {
+    font-size: 24vw;
+    letter-spacing: -9px;
   }
 }
 
