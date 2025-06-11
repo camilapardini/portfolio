@@ -105,7 +105,7 @@ a:hover {
   justify-items: start;
 }
 .frame--header {
-  padding-inline: 10px;
+  padding: 10px 0px 0px 2.2vw;
   grid-template-columns: 100%;
   grid-template-areas: "name" "about" "works";
 }
@@ -115,11 +115,7 @@ a:hover {
   font-weight: 700;
 }
 .frame__name {
-  grid-area: name;
-  opacity: 1;
-}
-.frame__name img {
-  width: 65px;
+  display: none;
 }
 .frame__about {
   grid-area: about;
@@ -269,12 +265,21 @@ a:hover {
     overflow-x: hidden;
   }
   .frame--header {
+    padding: 10px 10px 10px 10px;
     display: flex;
     flex-direction: row;
     max-width: 95%;
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
+  }
+  .frame__name {
+    display: grid;
+    grid-area: name;
+    opacity: 1;
+  }
+  .frame__name img {
+    width: 65px;
   }
   .frame .intro {
     margin-top: 10vh;
@@ -395,7 +400,7 @@ a:hover {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: start;
+    align-items: center;
   }
   .intro {
     padding: var(--page-padding);
