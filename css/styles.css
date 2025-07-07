@@ -3,6 +3,7 @@
   font-size: 16px;
   --color-text: rgb(26, 24, 24);
   --color-bg: rgb(239, 227, 236);
+  --color-bg-brown: #775959;
   --color-link: rgba(210, 88, 196, 0.86);
   --color-link-hover: rgb(74, 74, 73);
   --color-lines: rgba(120, 118, 119, 0.86);
@@ -33,7 +34,7 @@
 body {
   margin: 0;
   color: var(--color-text);
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-brown);
   font-family: "scale-variable", -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
   font-variation-settings: "wght" 400, "wdth" 100;
   -webkit-font-smoothing: antialiased;
@@ -51,6 +52,7 @@ a {
 a:hover {
   color: var(--color-link-hover);
   opacity: 1;
+  transition: 500ms;
 }
 
 .type-small {
@@ -58,6 +60,12 @@ a:hover {
   font-family: "iki-mono-variable", sans-serif;
   font-variation-settings: "wdth" 100, "wght" 300;
   text-transform: uppercase;
+}
+
+.border-radius {
+  border-radius: 0px 0px 50px 50px;
+  background-image: url(../img/noise.png);
+  background-color: var(--color-bg);
 }
 
 /* Page Loader */
@@ -130,8 +138,9 @@ a:hover {
 .intro {
   padding: 0;
   line-height: 1;
-  margin-top: 7vh;
-  margin-bottom: 20vh;
+  margin-top: 24vh;
+  margin-bottom: 3vh;
+  height: 58vh;
 }
 .intro__heading {
   display: flex;
@@ -159,7 +168,7 @@ a:hover {
 .divider {
   border-top: 2px solid var(--color-lines);
   max-width: 95%;
-  margin: 40px auto 0;
+  margin: 20px auto 0;
 }
 
 .hide {
@@ -189,11 +198,14 @@ a:hover {
   font-size: 6vh;
   margin: 0;
   text-align: left;
+  color: var(--color-bg);
+  text-shadow: 1px 1px #313030;
 }
 .blur-text .blur--description {
   width: 95%;
   margin-top: 10px;
   font-family: "instrument-sans-variable", sans-serif;
+  color: var(--color-bg);
 }
 .blur-text .blur--description p {
   font-size: 3vh;
@@ -205,12 +217,18 @@ a:hover {
 }
 
 /* Cards */
+#cards {
+  background-color: var(--color-bg);
+  background-image: url(../img/noise.png);
+  border-radius: 50px 50px 0px 0px;
+}
+
 .cards--content {
   padding: var(--page-padding);
   display: flex;
   flex-direction: column;
   place-items: center;
-  margin-bottom: 5vh;
+  padding-bottom: 5vh;
 }
 
 .cards--title {
@@ -258,6 +276,8 @@ a:hover {
 .frame--footer {
   flex-direction: column;
   padding: var(--page-padding);
+  background-image: url(../img/noise.png);
+  background-color: var(--color-bg);
 }
 
 @media screen and (min-width: 768px) {
@@ -281,26 +301,6 @@ a:hover {
   .frame__name img {
     width: 65px;
   }
-  .frame .intro {
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-    min-height: auto;
-  }
-  .frame .intro__heading {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: baseline;
-  }
-  .frame .intro__heading h2 {
-    font-size: clamp(1.5rem, 6vw, 2.5rem);
-    text-align: center;
-  }
-  .frame .intro__heading p {
-    font-size: 32vw;
-    text-align: center;
-    letter-spacing: -1px;
-  }
   .frame .blur-text {
     flex-direction: column;
     align-items: flex-start;
@@ -319,7 +319,28 @@ a:hover {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 10vh;
+    padding-top: 10vh;
+  }
+  .intro {
+    margin-top: 18vh;
+    margin-bottom: 5vh;
+    height: 70vh;
+  }
+  .intro__heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
+  .intro__heading h2 {
+    font-size: 5vh;
+    text-align: center;
+    padding-left: 20px;
+  }
+  .intro__heading p {
+    font-size: 25vw;
+    text-align: center;
+    letter-spacing: -12px;
   }
   .card-wrap {
     grid-template-columns: 1fr;
@@ -329,6 +350,7 @@ a:hover {
   }
   .card__image {
     filter: brightness(0.7);
+    transition: 500ms;
   }
   .card__image:hover {
     filter: brightness(1);
@@ -339,18 +361,19 @@ a:hover {
     overflow-x: hidden;
   }
   .frame__name img {
-    width: 80px;
+    width: 60px;
   }
   .intro {
     padding: var(--page-padding);
-    margin-top: 18vh;
-    margin-bottom: 20vh;
+    margin-top: 35vh;
+    margin-bottom: 10vh;
   }
   .intro__heading h2 {
-    font-size: 8vh;
+    font-size: 6vh;
   }
   .intro__heading p {
-    letter-spacing: -10px;
+    letter-spacing: -12px;
+    font-size: 24vw;
   }
   .card-wrap {
     grid-template-columns: repeat(2, 450px);
@@ -404,20 +427,21 @@ a:hover {
   }
   .intro {
     padding: var(--page-padding);
-    margin-top: 16vh;
+    margin-top: 20vh;
     min-height: 0;
     margin-bottom: 15vh;
   }
   .intro__heading {
-    gap: 12vh;
+    padding-top: 100px;
   }
   .intro__heading h2 {
     font-size: 3vw;
-    margin: 0 auto;
+    padding-left: 24px;
+    margin: 0;
   }
   .intro__heading p {
     font-size: 25vw;
-    letter-spacing: -18px;
+    letter-spacing: -20px;
   }
   .blur-text {
     width: 100vw;
@@ -441,6 +465,7 @@ a:hover {
   .blur-text .blur--description p {
     font-size: 4vh;
     margin: 0 0 20px 0;
+    line-height: 1.2;
   }
   .card-wrap {
     grid-template-columns: repeat(2, 600px);
@@ -453,22 +478,22 @@ a:hover {
     filter: brightness(1);
   }
 }
-@media screen and (min-width: 1670px) {
+@media screen and (min-width: 1690px) {
   body {
     overflow-x: hidden;
   }
   .intro {
     padding: var(--page-padding);
-    margin-top: 10vh;
+    margin-top: 28vh;
     min-height: 0;
     margin-bottom: 15vh;
   }
   .intro__heading {
-    gap: 10vh;
+    padding-top: 0px;
   }
   .intro__heading h2 {
     font-size: 3vw;
-    margin: 0 auto;
+    padding-left: 30px;
   }
   .intro__heading p {
     font-size: 24vw;
